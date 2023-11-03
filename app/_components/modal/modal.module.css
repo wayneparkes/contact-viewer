@@ -1,0 +1,15 @@
+.modal {
+  margin: auto;
+  width: 50%;
+  padding: 1rem;
+}
+
+.modal::backdrop {
+  background-color: rgba(35,35,35,0.95);
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}

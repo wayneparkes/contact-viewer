@@ -1,0 +1,19 @@
+.form {
+  width: 50%;
+  margin: 1rem auto;
+}
+
+.label {
+  display: block;
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+  padding: .5rem;
+}
+
+.button {
+  margin: 0 auto 1rem;
+  display: block;
+}
