@@ -6,13 +6,13 @@ import Form from '../form/form'
 import { ContactModel } from '../contact/contact'
 import styles from './header.module.css'
 
-type SearchProps = {
-  contacts: ContactModel[]
+type HeaderProps = {
+  searchCriteria: ContactModel[]
 }
 
 export default function Search({
-  contacts
-}: SearchProps) {
+  searchCriteria
+}: HeaderProps) {
   const [addContact, setAddContact] = useState(false)
   return (
     <header>
@@ -21,7 +21,7 @@ export default function Search({
         <input className={styles.input} type="text" id="search" list="contact-names" />
         <datalist id="contact-names">
           {
-            contacts.map(({ id, name }) => <option key={id}>{ name }</option>)
+            searchCriteria.map(({ id, name }) => <option key={id}>{ name }</option>)
           }
         </datalist>
       </form>

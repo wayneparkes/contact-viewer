@@ -21,7 +21,7 @@ export default async function Page() {
   const contacts = await getAllContacts()
   return (
     <>
-      <Header contacts={contacts} />
+      <Header searchCriteria={contacts} />
       <main className={styles.main}>
         {
           !contacts.length && <p>You don&apos;t have any contacts yet&hellip;</p>
