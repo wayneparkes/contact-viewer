@@ -43,7 +43,7 @@ export default function Contact(data: ContactModel) {
         <summary className={styles.cardSummary}>
           <figure className={styles.cardFigure}>
             {
-              data.avatar && <Image className={`${styles.avatar} u-photo`} src={data.avatar} alt="" width={200} height={200} />
+              data.avatar && <Image className={`${styles.avatar} u-photo`} src={data.avatar} alt="" width={200} height={200} priority={true} />
             }
             <figcaption className={`${styles.name} p-name`}>{data.name}</figcaption>
           </figure>
