@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Modal from '../modal/modal'
 import Form from '../form/form'
 import { ContactModel } from '../contact/contact'
+import testId from '../../_utils/testId'
 import styles from './header.module.css'
 
 type HeaderProps = {
@@ -21,16 +22,16 @@ export default function Search({
         <input className={styles.input} type="text" id="search" list="contact-names" />
         <datalist id="contact-names">
           {
-            searchCriteria.map(({ id, name }) => <option key={id}>{ name }</option>)
+            searchCriteria.map(({ id, name }) => <option key={id} {...testId('datalist-option')}>{ name }</option>)
           }
         </datalist>
       </form>
 
-      <button className={styles.button} type="button" onClick={() => setAddContact(true)}>Add new contact</button>
+      <button className={styles.button} type="button" onClick={() => setAddContact(true)} {...testId('add-contact-button')}>Add new contact</button>
 
       {
         addContact && (
-          <Modal onClose={() => setAddContact(false)}>
+          <Modal onClose={() => setAddContact(false)} {...testId('add-contact-modal')}>
             <Form purpose="add" onSuccess={() => setAddContact(false)} />
           </Modal>
         )

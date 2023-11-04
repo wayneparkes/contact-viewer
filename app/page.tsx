@@ -1,6 +1,7 @@
 import Contact, { ContactModel } from './_components/contact/contact'
 import styles from './page.module.css'
 import Header from './_components/header/header'
+import testId from './_utils/testId'
 
 async function getAllContacts(): Promise<ContactModel[]> {
   const res = await fetch(
@@ -24,7 +25,7 @@ export default async function Page() {
       <Header searchCriteria={contacts} />
       <main className={styles.main}>
         {
-          !contacts.length && <p>You don&apos;t have any contacts yet&hellip;</p>
+          !contacts.length && <p {...testId('no-contacts-text')}>You don&apos;t have any contacts yet&hellip;</p>
         }
         {
           contacts.length > 0 && contacts.map(contact => <Contact key={contact.id} {...contact} />)

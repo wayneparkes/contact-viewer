@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import testId from '../../_utils/testId'
 import styles from './modal.module.css'
 
 type ModalProps = {
@@ -26,7 +27,7 @@ export default function Modal({
   return (
     <dialog className={styles.modal} ref={dialogElement} onCancel={closeModal}>
       {children}
-      <button className={styles.close} type="button" onClick={closeModal}>Close</button>
+      <button className={styles.close} type="button" onClick={closeModal} {...testId('close-modal-button')}>Close</button>
     </dialog>
   )
 }
