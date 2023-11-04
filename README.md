@@ -12,6 +12,19 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Testing
+
+Run all unit tests
+```bash
+npm test
+```
+
+Run all unit tests and generate a coverage report
+> Report location: `/coverage/lcov-report/index.html`
+```bash
+npm run test:coverage
+```
+
 ## Tech Stack
 
 - Next.js 14
