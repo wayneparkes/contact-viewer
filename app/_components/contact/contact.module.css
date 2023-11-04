@@ -3,22 +3,18 @@
   border: 1px solid;
   padding: 1rem;
   cursor: zoom-in;
+
+  @media (min-width: 601px) {
+    width: calc((100% - 1rem) / 2);
+  }
+
+  @media (min-width: 901px) {
+    width: calc((100% - 2rem) / 3);
+  }
 }
 
 .card[open] {
   cursor: zoom-out;
-}
-
-@media (min-width: 601px) {
-  .card {
-    width: calc((100% - 1rem) / 2);
-  }
-}
-
-@media (min-width: 901px) {
-  .card {
-    width: calc((100% - 2rem) / 3);
-  }
 }
 
 .cardSummary {

@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { useFormState, useFormStatus } from 'react-dom'
 import { ContactModel } from '../contact/contact'
 import { addContact, editContact, deleteContact } from '../../actions'
+import './form.css'
 
 type FormProps = {
   data?: ContactModel,

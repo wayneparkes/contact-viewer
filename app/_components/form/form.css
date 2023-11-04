@@ -1,0 +1,19 @@
+.form-row {
+  margin-block: .5rem;
+  
+  &:last-of-type {
+    margin-block-end: 1rem;
+  }
+}
+
+label {
+  display: inline-block;
+  text-align: right;
+  margin-inline-end: .5rem;
+  width: 200px;
+}
+
+input {
+  padding: .25rem;
+  margin-inline-end: .5rem;
+}

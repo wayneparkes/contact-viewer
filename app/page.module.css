@@ -3,16 +3,14 @@
   flex-flow: column wrap;
   align-items: center;
   gap: 1rem;
-}
+  margin: 0 auto;
 
-@media (min-width: 601px) {
-  .main {
+  @media (min-width: 601px) {
     max-height: 3000px;
   }
-}
 
-@media (min-width: 901px) {
-  .main {
+  @media (min-width: 901px) {
     max-height: 1600px;
+    max-width: 1024px;
   }
 }
