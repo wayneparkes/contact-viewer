@@ -48,7 +48,7 @@ export default function Form({
       router.refresh()
       onSuccess()
     }
-  }, [state])
+  }, [state, router, onSuccess])
 
   return (
     <>

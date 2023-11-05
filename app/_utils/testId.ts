@@ -1,2 +1,4 @@
 const isTestEnv = String(process.env.NODE_ENV) === 'test'
-export default (testId: string) => isTestEnv ? { 'data-test': testId } : {}
+export default function testId(testId: string) {
+  return isTestEnv ? { 'data-test': testId } : {}
+}
