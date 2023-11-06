@@ -18,14 +18,22 @@ export type ContactModel = {
   birthday?: string
 }
 
+type StateModel = {
+  moreDetails: boolean,
+  editMode: boolean,
+  deleteMode: boolean
+}
+
 export default function Contact(data: ContactModel) {
-  const [editContact, setEditContact] = useState(false)
-  const [deleteContact, setDeleteContact] = useState(false)
+  const [state, setState] = useState<StateModel>({ moreDetails: false, editMode: false, deleteMode: false })
+  const updateState = (nextState: Partial<StateModel>) => {
+    setState(prevState => ({ ...prevState, ...nextState }))
+  }
 
   return (
     <>
-      <details key={data.id} className={`${styles.card} h-card`}>
-        <summary className={styles.cardSummary}>
+      <details key={data.id} className={`${styles.card} h-card`} open={state.moreDetails}>
+        <summary className={styles.cardSummary} {...testId('contact-summary')}>
           <figure className={styles.cardFigure}>
             {
               data.avatar && <Image className={`${styles.avatar} u-photo`} src={data.avatar} alt="" width={200} height={200} priority={true} {...testId('contact-avatar')} />
@@ -33,8 +41,11 @@ export default function Contact(data: ContactModel) {
             <figcaption className={`${styles.name} p-name`} {...testId('contact-name')}>{data.name}</figcaption>
           </figure>
 
-          <button type="button" onClick={() => setEditContact(true)} {...testId('edit-contact-button')}>Edit</button>
-          <button type="button" onClick={() => setDeleteContact(true)} {...testId('delete-contact-button')}>Delete</button>
+          <div className={styles.actions}>
+            <button type="button" onClick={() => updateState({ moreDetails: !state.moreDetails })}>{state.moreDetails ? 'Less' : 'More'} details</button>
+            <button type="button" onClick={() => updateState({ editMode: true })} {...testId('edit-contact-button')}>Edit</button>
+            <button type="button" onClick={() => updateState({ deleteMode: true })} {...testId('delete-contact-button')}>Delete</button>
+          </div>
         </summary>
         <dl>
           {
@@ -73,17 +84,17 @@ export default function Contact(data: ContactModel) {
       </details>
 
       {
-        editContact && (
-          <Modal onClose={() => setEditContact(false)} {...testId('edit-contact-modal')}>
-            <Form data={data} purpose="edit" onSuccess={() => setEditContact(false)} />
+        state.editMode && (
+          <Modal onClose={() => updateState({ editMode: false })} {...testId('edit-contact-modal')}>
+            <Form data={data} purpose="edit" onSuccess={() => updateState({ editMode: false })} />
           </Modal>
         )
       }
 
       {
-        deleteContact && (
-          <Modal onClose={() => setDeleteContact(false)} {...testId('delete-contact-modal')}>
-            <Form data={data} purpose="delete" onSuccess={() => setDeleteContact(false)} />
+        state.deleteMode && (
+          <Modal onClose={() => updateState({ deleteMode: false })} {...testId('delete-contact-modal')}>
+            <Form data={data} purpose="delete" onSuccess={() => updateState({ deleteMode: false })} />
           </Modal>
         )
       }

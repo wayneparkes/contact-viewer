@@ -60,7 +60,7 @@ test('render a form with the purpose of editing', () => {
   expect(screen.getByTestId('input-contact-avatar')).toHaveValue('https://example.com/image.webp')
   expect(screen.getByTestId('input-contact-email')).toHaveValue('joe.bloggs@example.com')
   expect(screen.getByTestId('input-contact-phone')).toHaveValue('07123456789')
-  expect(document.querySelector('[data-test="input-contact-bday"]')?.getAttribute('value')).toBe('1979-06-19T23:00:00.000Z')
+  expect(document.querySelector('[data-test="input-contact-bday"]')?.getAttribute('value')).toBe('1979-06-19')
 
   expect(screen.getByTestId('submit-button')).toHaveTextContent('Update')
 })

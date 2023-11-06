@@ -2,27 +2,45 @@
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install the dependencies
+npm i
+
+# Run the development server
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Testing
 
-Run all unit tests
+#### Unit Testing
+[React Testing Library](https://github.com/testing-library/react-testing-library#readme) is used for unit testing
+
 ```bash
+# run all tests
 npm test
+
+# run a specific test
+npm test filename.test.tsx
+
+# run all tests then generate coverage report
+# Report location: `/coverage/lcov-report/index.html`
+npm run test:coverage
 ```
 
-Run all unit tests and generate a coverage report
-> Report location: `/coverage/lcov-report/index.html`
+#### E2E Testing
+[Cypress](https://github.com/cypress-io/cypress#readme) is used for E2E testing
+> Note: The development server will start automatically with the `e2e` commands
+
 ```bash
-npm run test:coverage
+# run all tests in interactive mode
+npm run e2e
+
+# run all tests headlessly then generate videos of passing features or screenshots of failing features
+# Video location: `/cypress/videos`
+# Screenshot location: `/cypress/screenshots`
+npm run e2e:headless
 ```
 
 ## Tech Stack

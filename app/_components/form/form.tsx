@@ -7,6 +7,7 @@ import { useFormState, useFormStatus } from 'react-dom'
 import { ContactModel } from '../contact/contact'
 import { addContact, editContact, deleteContact } from '../../actions'
 import testId from '../../_utils/testId'
+import { dateToISOString } from '../../_utils/formatDate'
 import './form.css'
 
 type FormProps = {
@@ -97,7 +98,7 @@ export default function Form({
 
               <div className="form-row">
                 <label htmlFor="birthday">Contact&apos;s birthday</label>
-                <input type="date" id="birthday" name="birthday" defaultValue={purpose === 'edit' ? data?.birthday : undefined } {...testId('input-contact-bday')} />
+                <input type="date" id="birthday" name="birthday" defaultValue={purpose === 'edit' ? dateToISOString(data?.birthday) : undefined } {...testId('input-contact-bday')} />
               </div>
             </>
           )

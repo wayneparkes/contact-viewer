@@ -1,3 +1,7 @@
+export function dateToISOString(date = '') {
+  return date && new Date(date).toISOString().split('T')[0]
+}
+
 export default function formatDate(date: string, showYear = true) {
   const options: Intl.DateTimeFormatOptions = {
     month: 'long',

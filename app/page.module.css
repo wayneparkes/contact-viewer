@@ -4,6 +4,7 @@
   align-items: center;
   gap: 1rem;
   margin: 0 auto;
+  overflow: hidden;
 
   @media (min-width: 601px) {
     max-height: 3000px;

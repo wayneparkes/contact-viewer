@@ -17,19 +17,19 @@ test('returns a data-test attribute object when NODE_ENV is "test"', () => {
   expect(result).toEqual({ 'data-test': 'my-test-id' })
 })
 
-test('should not return a data-test attribute object when NODE_ENV is "development"', () => {
+test('returns a data-test attribute object when NODE_ENV is "development"', () => {
   // @ts-expect-error
   process.env.NODE_ENV = 'development'
   const testId = require('./testId').default
-  const result = testId('test-id')
-  expect(result).toEqual({})
+  const result = testId('my-test-id')
+  expect(result).toEqual({ 'data-test': 'my-test-id' })
 })
 
 test('should not return a data-test attribute object when NODE_ENV is "staging"', () => {
   // @ts-expect-error
   process.env.NODE_ENV = 'staging'
   const testId = require('./testId').default
-  const result = testId('test-id')
+  const result = testId('my-test-id')
   expect(result).toEqual({})
 })
 
@@ -37,6 +37,6 @@ test('should not return a data-test attribute object when NODE_ENV is "productio
   // @ts-expect-error
   process.env.NODE_ENV = 'production'
   const testId = require('./testId').default
-  const result = testId('test-id')
+  const result = testId('my-test-id')
   expect(result).toEqual({})
 })

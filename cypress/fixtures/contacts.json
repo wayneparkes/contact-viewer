@@ -1,0 +1,11 @@
+[
+  {
+    "id": "1",
+    "name": "Joe Bloggs",
+    "avatar": "https://example.com/image.webp",
+    "email": "joe.bloggs@example.com",
+    "phone": "07123456789",
+    "birthday": "1979-06-19T23:00:00.000Z",
+    "createdAt": "2023-11-03T12:33:25.772Z"
+  }
+]
